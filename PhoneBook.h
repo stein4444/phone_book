@@ -10,8 +10,9 @@ struct Contact
 
 struct user
 {
-	string login;
+	string email;
 	string password;
+	string userName;
 };
 
 void init();

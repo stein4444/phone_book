@@ -5,35 +5,29 @@
 using namespace std;
 
 int main() {
-
+	init();
 	int action = 0;
-	bool nice;
-	do
-	{
+	start:
 		cout << "If you want register press - 1" << endl;
 		cout << "If you want logn press - 2" << endl;
 		cout << "action>_";
 		cin >> action;
-		switch (action)
-		{
-
-
-		case 1:
+		if (action == 1) {
 			registrarion();
 			login();
-			nice = true;
-			break;
-			
-		case 2:
-			login();
-			nice = true;
-			break;
-		default:
-			break;
 		}
+		else if(action == 2)
+		{
+			login();
+		}
+		else if (action < 1 || action > 2)
+		{
 
-	} while (nice!= true); 
-	
+			cout << "Error try again" << endl;
+			goto start;
+		}
+			
+			
 
 	do
 	{

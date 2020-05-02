@@ -88,31 +88,35 @@ void showAllContacts()
 
 void registrarion()
 {
-	
-			cout << "Enter your new login: ";
-			cin >> newUser.login;
-			cout << "Enter your password: ";
-			cin >> newUser.password;
-			users.push_back(newUser);
-			ofstream fout;
-			fout.open(file, ios::app);
+	cout << "Enter your name: ";
+	cin >> newUser.userName;
+	cout << "Enter your email: ";
+	cin >> newUser.email;
+	cout << "Enter your password: ";
+	cin >> newUser.password;
+	users.push_back(newUser);
+	ofstream fout;
+	fout.open(file, ios::app);
 
-			bool isOpen = fout.is_open();
-			if (isOpen == false) {
-				cout << "Error: Application can't connecting to database file!" << endl;
-			}
-			else {
-				fout << newUser.login << endl;
-				fout << newUser.password << endl;
-			}
-			fout.close();
-			cout << "You successfully registered" << endl;
-			PAUSE
-				CLEAR
+	bool isOpen = fout.is_open();
+	if (isOpen == false) {
+		cout << "Error: Application can't connecting to database file!" << endl;
+	}
+	else {
+		fout << newUser.email << endl;
+		fout << newUser.password << endl;
+		fout << newUser.userName << endl;
+	}
+	fout.close();
+	cout << "You successfully registered" << endl;
+	PAUSE
+		CLEAR
 }
 
 void login()
 {
+	
+	string name;
 	ifstream fin;
 	user oldUser;
 	string str;
@@ -122,28 +126,41 @@ void login()
 	}
 	else
 	{
+		start:
 		cout << "Enter your login: ";
-		cin >> oldUser.login;
+		cin >> oldUser.userName;
 		cout << "Enter your password: ";
 		cin >> oldUser.password;
-		
+		name = oldUser.userName;
 	}
 	while (!fin.eof())
-	{
+	{	
 		fin >> str;
 
 	}
-		if (oldUser.login, oldUser.password == str) {
-			cout << "You successfully login" << endl;
+	
+		if (oldUser.userName == str && oldUser.password == str) {
+			cout << "Hello " << name << endl;
 		}
 		else
 		{
 
-			cout << "Error" << endl;
+			cout << "Error try again" << endl;
+			goto start;
 		}
+
 	
 	
-	
+
+
 	fin.close();
 
 }
+
+
+
+
+
+
+
+

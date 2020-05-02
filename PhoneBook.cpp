@@ -103,7 +103,7 @@ void registrarion()
 		cout << "Error: Application can't connecting to database file!" << endl;
 	}
 	else {
-		fout << newUser.email << endl;
+		//fout << newUser.email << endl;
 		fout << newUser.password << endl;
 		fout << newUser.userName << endl;
 	}
@@ -115,48 +115,41 @@ void registrarion()
 
 void login()
 {
-	
-	string name;
+
+	string login, password, log, pw;
 	ifstream fin;
-	user oldUser;
-	string str;
 	fin.open(file, ios::in);
 	if (!fin) {
 		cout << "Cannot open file.\n";
 	}
 	else
 	{
-		start:
+	start:
 		cout << "Enter your login: ";
-		cin >> oldUser.userName;
+		cin >> login;
 		cout << "Enter your password: ";
-		cin >> oldUser.password;
-		name = oldUser.userName;
+		cin >> password;
+		getline(fin, log);
+		getline(fin, pw);
 	}
-	while (!fin.eof())
-	{	
-		fin >> str;
 
+	if (login == log && password == pw) {
+		cout << "Hello " << login << endl;
 	}
-	
-		if (oldUser.userName == str && oldUser.password == str) {
-			cout << "Hello " << name << endl;
-		}
-		else
-		{
+	else
+	{
 
-			cout << "Error try again" << endl;
-			goto start;
-		}
+		cout << "Error try again" << endl;
+		goto start;
+	}
 
-	
-	
+
+
 
 
 	fin.close();
 
 }
-
 
 
 

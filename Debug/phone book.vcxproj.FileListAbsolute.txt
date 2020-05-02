@@ -1,0 +1,2 @@
+E:\hm\phone book\Debug\phone book.exe
+E:\hm\phone book\Debug\phone book.pdb
